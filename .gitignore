@@ -1,0 +1,30 @@
+/.metadata/
+# Metadata and IDE files
+.metadata/
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+*.swp
+*.swo
+
+# Build output
+target/
+build/
+bin/
+out/
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# Package files
+*.zip
+*.tar.gz
