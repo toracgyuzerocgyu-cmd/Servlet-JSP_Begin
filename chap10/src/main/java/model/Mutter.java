@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class Mutter implements Serializable {
+	private int id; // ID
 	private String userName; // ユーザー名
 	private String text; // つぶやき内容
 	private int likes;
@@ -14,6 +15,11 @@ public class Mutter implements Serializable {
 		this.text = text;
 		this.likes = 0;
 		this.disLikes = 0;
+	}
+	public Mutter(int id, String userName, String text) {
+		this.id = id;
+		this.userName = userName;
+		this.text = text;
 	}
 	
 	public void setLikes(int likes) { this.likes = likes; }
@@ -29,6 +35,7 @@ public class Mutter implements Serializable {
 		this.setDisLikes(count + 1);
 	}
 	
+	public int getId() { return id; }
 	public String getUserName() { return userName; }
 	public String getText() { return text; }
 	public int getLikes() { return likes; }
