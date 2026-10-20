@@ -50,5 +50,18 @@ public class SelectEmployees {
 			System.out.println("名前:" + emp.getName());
 			System.out.println("年齢:" + emp.getAge());
 		}
+		
+		// EMPLOYEESテーブルから指定した従業員を削除
+		empDAO.remove(empList.get(0).getId());
+		
+		// 再度EMPLOYEESテーブルの全レコードを取得
+		empList = empDAO.findAll();
+		
+		// 取得したレコードの内容を出力
+		for (Employee emp : empList) {
+			System.out.println("ID:" + emp.getId());
+			System.out.println("名前:" + emp.getName());
+			System.out.println("年齢:" + emp.getAge());
+		}
 	}
 }

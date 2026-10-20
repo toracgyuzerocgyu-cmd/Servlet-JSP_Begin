@@ -45,5 +45,33 @@ public class EmployeesDAO {
 			return null;
 		}
 		return empList;
-	}	
+	}
+	
+	public boolean remove(String id) {
+		// JDBCドライバを読み込む
+		try {
+			Class.forName("org.h2.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new IllegalStateException ("JDBCドライバを読み込めませんでした");
+		}
+		// データベースに接続
+		try(Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+			// DELETE文を準備
+			String sql = "DELETE FROM EMPLOYEES WHERE ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			// DELETEするIDを設定
+			pStmt.setString(1, id);
+			
+			// DELETE文を実行
+			int result = pStmt.executeUpdate();
+			if (result != 1 ) {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 }
